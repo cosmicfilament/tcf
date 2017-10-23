@@ -1,0 +1,32 @@
+<div class="blog-classic">
+    <div class="date">
+        {{day}}
+        <span>{{monthyr}}</span>
+    </div>
+    <div class="blog-post">
+        <h4 class="text-uppercase">{{title}}</h4>
+        <ul class="post-meta">
+            <li>
+                <i class="fa fa-user"></i>
+                Posted by {{author}}
+            </li>
+            <li>
+                <i class="fa fa-eye"></i>
+                Views: {{views}}
+            </li>
+            <li>
+                <i class="fa fa-thumbs-o-up"></i>
+                Likes: {{likes}}
+            </li>
+            <li>
+                <i class="fa fa-comments"></i>
+                Comments: 4
+            </li>
+            <li>
+                <i class="fa fa-calendar"></i>
+                created on: {{timestamp}}
+            </li>
+        </ul>
+        <pre>{{text}}</pre>
+    </div>
+</div>

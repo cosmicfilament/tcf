@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+
+    <!--favicon icon-->
+    <link rel="icon" type="image/png" href="./public/img/tcf-icon.png">
+
+    <title>The Cosmic Filament</title>
+
+    <!--common style-->
+    <link href="http://fonts.googleapis.com/css?family=Abel|Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900,900italic,200italic,200"
+        rel="stylesheet" type="text/css">
+
+    <!-- inject:css -->
+    <!-- <link rel="stylesheet" href="./public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/vendor/animate/animate.css">
+    <link rel="stylesheet" href="./public/vendor/elasic-slider/elastic.css">
+    <link rel="stylesheet" href="./public/vendor/iconmoon/linea-icon.css">
+    <link rel="stylesheet" href="./public/vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="./public/vendor/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="./public/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./public/vendor/assets/css/shortcodes.css">
+    <link rel="stylesheet" href="./public/vendor/assets/css/style.css">
+    <link rel="stylesheet" href="./public/vendor/assets/css/default-theme.css">
+    <link rel="stylesheet" href="./public/css/tcf.css"> -->
+</head>
+
+<body>
+
+    <!--  preloader start -->
+    <div id="tb-preloader">
+        <div class="tb-preloader-wave"></div>
+    </div>
+    <!-- preloader end -->
+
+    {{!-- wrapper --}}
+    <div class="wrapper">
+
+        <!-- header -->
+        <header class="l-header">
+
+            <div class="l-navbar l-navbar_expand l-navbar_t-light l-navbar_s-center js-navbar-sticky">
+                <div class="container-fluid">
+                    <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
+
+                        <!--logo start-->
+                        <a href="/home" class="logo-brand">
+                            <img class="" src="./public/img/tcf-logo.png" alt="Galaxy" />
+                        </a>
+                        <!--logo end-->
+
+                        <!--mega menu start-->
+                        <ul class="menuzord-menu menuzord-right c-nav_s-standard">
+
+                            <li class="active">
+                                <a href="/home">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="/portfolio">Portfolio </a>
+                            </li>
+
+                            <li>
+                                <a href="/about">About </a>
+                            </li>
+
+                            <li>
+                                <a href="/contact">Contact </a>
+                            </li>
+
+                            <li id="search">
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-search"></i> Search</a>
+                                <div class="megamenu megamenu-quarter-width navbar-search">
+                                    <form role="searchform">
+                                        <input type="text" class="form-control" placeholder="Search Here">
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--mega menu end-->
+
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        <!-- end header-->
+
+        {{{body}}}
+
+        <!--footer start 1-->
+        <footer id="footer" class="dark">
+            <div class="primary-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="m-bot-20 footer-logo">
+                                <img class="" src="./public/img/tcf-icon-wh.png" alt="" />
+                            </a>
+                            <p>The Cosmic Filament is a fullstack web development commpany dedicated to ensuring that John Butler
+                                is gainfully employed.</p>
+
+                        </div>
+                        <div class="col-md-3" id="last5">
+                            <h5 class="text-uppercase">recent posts</h5>
+                            <ul class="f-list">
+                                {{> last5 this }}
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 class="text-uppercase">quick link</h5>
+                            <ul class="f-list">
+                                <li>
+                                    <a href="about">About TCF</a>
+                                </li>
+                                <li>
+                                    <a href="">Career</a>
+                                </li>
+                                <li>
+                                    <a href="">Terms & Condition</a>
+                                </li>
+                                <li>
+                                    <a href="">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="/contact">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 class="text-uppercase">Recent Work</h5>
+                            <ul class="r-work">
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/1.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/2.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/3.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/4.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/5.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/6.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/7.jpg" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/recent-work/8.jpg" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secondary-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="m-top-10 tcf-copyright"> | All Rights Reserved</span>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="social-link circle pull-right">
+                                {{!-- <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a> --}}
+                                <a href="https://www.linkedin.com/in/john-butler-7309032" target="_blank">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--footer 1 end-->
+
+    </div>
+    {{!-- end wrapper --}}
+
+    <!-- scripts -->
+    <div>
+        <!-- inject:js -->
+        <script src="./public/vendor/modernizr/modernizr.js"></script>
+        <script src="./public/dist/bundle.js"></script> {{{_sections.jquery}}}
+
+        <!-- endinject -->
+    </div>
+    {{!-- end scripts --}}
+</body>
+
+</html>

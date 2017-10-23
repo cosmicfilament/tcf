@@ -1,0 +1,183 @@
+<!--hero section-->
+<div class="banner-state text-center vertical-align height-450">
+    <div class="container-mid">
+        <div class="container">
+            <div class="banner-box light-box">
+                <h2 class="text-uppercase ls-20">The Cosmic Filament Blog</h2>
+                <h3 class="text-uppercase">and various stellar debris.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!--hero section-->
+
+<!--body content start-->
+<section class="body-content page-blog">
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <span class="insertBlog">{{> blogPost }}</span>
+                    <!--pagination-->
+                    <div class="text-center">
+                        <form class="form-paginate" action="/home/newPage" method="POST">
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <input type="hidden" name="_page" value="0">
+                            <ul class="pagination custom-pagination">
+                                <li>
+                                    <button type="button" name="_prev" class="btn btn-default btn-paginate">
+                                        <- Newer Stuff</button>
+                                </li>
+                                <li>
+                                    <button type="button" name="_next" class="btn btn-default btn-paginate">Older Stuff -></button>
+                                </li>
+                            </ul>
+                        </form>
+                        <span class="_response">...</span>
+                    </div>
+                    <!--pagination-->
+                </div>
+                <div class="col-md-4">
+                    <!--search widget-->
+                    <div class="widget">
+                        <form class="form-inline form" role="form">
+                            <div class="search-row">
+                                <button class="search-btn" type="submit" title="Search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </div>
+                        </form>
+                    </div>
+                    <!--search widget-->
+
+                    <!--author widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">about author</h6>
+                        </div>
+                        <div class="full-width avatar">
+                            <img src="./public/img/tcf-john.png" alt="My ugly mug. width=150 height=150" />
+                        </div>
+                        <p>I may not be much, but I'm all I think about.</p>
+
+                        <span class="">- John P. Butler</span>
+                    </div>
+                    <!--author widget-->
+
+                    <!--latest post widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">latest post</h6>
+                        </div>
+                        <ul class="widget-latest-post">
+                            <li>
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img src="./public/vendor/assets/img/post/post-thumb.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="w-desk">
+                                    <a href="#">Old Father Getup</a> April 25, 2014
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--latest post widget-->
+
+                    <!--follow us widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">follow us</h6>
+                        </div>
+                        <div class="widget-social-link circle">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-dribbble"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--follow us widget-->
+
+                    <!--category widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">category</h6>
+                        </div>
+                        <ul class="widget-category">
+                            <li>
+                                <a href="#">Animals</a>
+                            </li>
+                            <li>
+                                <a href="#">Landscape</a>
+                            </li>
+                            <li>
+                                <a href="#">Portrait</a>
+                            </li>
+                            <li>
+                                <a href="#">Wild Life</a>
+                            </li>
+                            <li>
+                                <a href="#">Video</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--category widget-->
+
+                    <!--comments widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">Latest comments </h6>
+                        </div>
+                        <ul class="widget-comments">
+                            <li>Jonathan on
+                                <a href="javascript:;">Vesti blulum quis dolor </a>
+                            </li>
+                            <li>Jane Doe on
+                                <a href="javascript:;">Nam sed arcu tellus</a>
+                            </li>
+                            <li>Margarita on
+                                <a href="javascript:;">Fringilla ut vel ipsum </a>
+                            </li>
+                            <li>Smith on
+                                <a href="javascript:;">Vesti blulum quis dolor sit</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--comments widget-->
+
+                    <!--tags widget-->
+                    <div class="widget">
+                        <div class="heading-title-alt text-left heading-border-bottom">
+                            <h6 class="text-uppercase">tag cloud</h6>
+                        </div>
+                        <div class="widget-tags">
+                            <a href="">Portfolio</a>
+                            <a href="">Design</a>
+                            <a href="">Link</a>
+                            <a href="">Gallery</a>
+                            <a href="">Video</a>
+                            <a href="">Clean</a>
+                            <a href="">Retina</a>
+                        </div>
+                    </div>
+                    <!--tags widget-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--body content end-->
