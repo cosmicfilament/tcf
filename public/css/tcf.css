@@ -1,9 +1,9 @@
 .banner-state {
-    background-image: url("/public/img/tcf-monet.jpg");
+    background-image: url("../img/tcf-monet.jpg");
 }
 
 .page-title.background-title {
-    background-image: url("/public/img/tcf-monet.jpg");
+    background-image: url("../img/tcf-monet.jpg");
 }
 
 
