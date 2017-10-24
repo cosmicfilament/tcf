@@ -15,6 +15,13 @@
     <!--common style-->
     <link href="http://fonts.googleapis.com/css?family=Abel|Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900,900italic,200italic,200"
         rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./public/dist/styles.css" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="./public/vendor/backward/html5shiv.js"></script>
+    <script src="./public/vendor/backward/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -29,16 +36,16 @@
     {{!-- wrapper --}}
     <div class="wrapper">
 
-        <!-- header -->
-        <header class="l-header">
+        <!--header start-->
+        <header class="l-header l-header_overlay">
 
-            <div class="l-navbar l-navbar_expand l-navbar_t-light l-navbar_s-center js-navbar-sticky">
+            <div class="l-navbar l-navbar_expand l-navbar_t-light js-navbar-sticky">
                 <div class="container-fluid">
                     <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
 
                         <!--logo start-->
                         <a href="/home" class="logo-brand">
-                            <img class="retina" src="./public/dist/img/tcf-logo.jpg" alt="Galaxy" />
+                            <img class="retina logo-box" src="./public/dist/img/tcf-logo-trans.png" alt="Galaxy" />
                         </a>
                         <!--logo end-->
 

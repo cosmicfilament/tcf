@@ -1,9 +1,11 @@
 "use strict";
 
 const webpack = require("webpack");
-const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //const merge = require("webpack-merge");
 //const glob = require("glob");
+
+const path = require("path");
 
 const PATHS = {
     in: path.join(__dirname, "public"),
@@ -27,19 +29,26 @@ module.exports = {
             jquery: "jquery",
             "window.jQuery": "jquery",
             "window.$": "jquery"
-        })
+        }),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new ExtractTextPlugin("styles.css"),
     ],
+    devtool: 'source-map',
     module: {
         rules:
         [
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader",
-                options: {
-                    limit: "10000",
-                    name: "/fonts/[name].[ext]",
-                    publicPath: "public/dist",
-                },
+                // use: [{
+                //     loader: "url-loader",
+                //     options: {
+                //         limit: "10000",
+                //         name: "/fonts/[name].[ext]",
+                //         publicPath: "public/dist",
+                //     }
+                // },
+                use: 'file-loader?name=/fonts/[name].[ext]',
+
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
@@ -70,11 +79,18 @@ module.exports = {
                             }
                         }
                     },
+                    'file-loader?name=/img/[name].[ext]',
                 ]
             },
             {
                 test: /\.css$/,
-                loaders: ["style-loader", "css-loader"]
+                //loaders: ["style-loader", "css-loader"],
+                use: ExtractTextPlugin.extract(
+                    {
+                        fallback: "style-loader",
+                        use: "css-loader"
+                    }
+                )
             },
             {
                 test: /.js$/,
@@ -87,5 +103,5 @@ module.exports = {
                 }
             },
         ]
-    }
+    },
 };
