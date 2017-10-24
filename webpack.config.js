@@ -43,26 +43,34 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                // use: [
-                //     "url-loader?limit=10000&name=img/[name].[ext]",
-                //     "img-loader?name=img/[name].[ext]",
-                // ],
-                loader: "url-loader",
-                options: {
-                    limit: "10000",
-                    name: "/img/[name].[ext]",
-                    publicPath: "public/dist",
-
-                },
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: "img-loader",
-                options: {
-                    name: "/img/[name].[ext]",
-                    publicPath: "public/dist",
-
-                },
+                use: [
+                    'url-loader?limit=10000&name=/img/[name].[ext]',
+                    {
+                        loader: 'img-loader',
+                        options: {
+                            name: "/img/[name].[ext]",
+                            enabled: true,
+                            gifsicle: {
+                                interlaced: false
+                            },
+                            mozjpeg: {
+                                progressive: true,
+                                arithmetic: false
+                            },
+                            optipng: false,
+                            pngquant: {
+                                floyd: 0.5,
+                                speed: 2
+                            },
+                            svgo: {
+                                plugins: [
+                                    { removeTitle: true },
+                                    { convertPathData: false }
+                                ]
+                            }
+                        }
+                    },
+                ]
             },
             {
                 test: /\.css$/,

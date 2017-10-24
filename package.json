@@ -41,8 +41,10 @@
     "glob": "^7.1.2",
     "img-loader": "^2.0.0",
     "intellisense": "0.0.1",
+    "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-bootstrap-installer": "^1.0.0",
+    "webpack-bundle-size-analyzer": "^2.7.0",
     "webpack-merge": "^4.1.0"
   },
   "homepage": "https://github.com/cosmicfilament/tcf#readme",

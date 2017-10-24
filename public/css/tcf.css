@@ -1,9 +1,9 @@
 .banner-state {
-    background-image: url("../img/tcf-monet.jpg");
+    background-image: url("/public/dist/img/tcf-monet.jpg");
 }
 
 .page-title.background-title {
-    background-image: url("../img/tcf-monet.jpg");
+    background-image: url("/public/dist/img/tcf-monet.jpg");
 }
 
 
@@ -31,4 +31,21 @@
   border-color: #ddd;
   outline: 0;
   outline-offset: 0;
+}
+.post-hand {
+  background: url("/public/dist/img/hand.jpg") left 150px no-repeat !important;
+}
+
+.post-hand-alt {
+  background: url("/public/dist/img/hand.jpg") left 100px no-repeat !important;
+}
+.post-parallax {
+  overflow: hidden;
+  width: 100% !important;
+  height: 100%;
+   background-image: url("/public/dist/img//phone.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
 }

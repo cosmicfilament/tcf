@@ -2368,7 +2368,7 @@ body {
 
 .parallax {
     height: 100vh;
-    background-image: url("../img/demo.jpg");
+    /* background-image: url("../img/demo.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -2377,7 +2377,7 @@ body {
 
 .parallax-inner {
     padding: 150px 0;
-    background-image: url("../img/demo.jpg");
+    /* background-image: url("../img/demo.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -2386,7 +2386,7 @@ body {
 
 .banner-state {
     height: 100vh;
-    background-image: url("");
+    /* background-image: url(""); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -2395,7 +2395,7 @@ body {
 
 .full-banner {
     position: relative;
-    background-image: url("../img/banner/creative-banner.jpg");
+    /* background-image: url("../img/banner/creative-banner.jpg"); */
     background-position: 50% 50%;
     background-size: cover;
 }
@@ -3352,7 +3352,7 @@ body {
 }
 
 .count-parallax {
-    background-image: url("../img/parallax/5.jpg");
+    /* background-image: url("../img/parallax/5.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -3835,7 +3835,7 @@ header li.nav-icon .cart-table-list a {
 
 .box-background-img {
     height: 100vh;
-    background-image: url("../img/parallax/para7.jpg");
+    /* background-image: url("../img/parallax/para7.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -3843,7 +3843,7 @@ header li.nav-icon .cart-table-list a {
 }
 
 .box-pattern {
-    background-image: url("../img/pattern-2.png");
+    /* background-image: url("../img/pattern-2.png"); */
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -4765,7 +4765,7 @@ comments-list
 }
 
 .login-parallax {
-    background-image: url("../img/parallax/3.jpg");
+    /* background-image: url("../img/parallax/3.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -5050,7 +5050,7 @@ address p {
     margin-bottom: 20px;
     padding: 20px;
     color: #fff;
-    background: url("../img/parallax/3.jpg") repeat 0 0/cover;
+    /* background: url("../img/parallax/3.jpg") repeat 0 0/cover; */
 }
 
 .newsletter h3 {
@@ -5212,7 +5212,7 @@ address p {
 }
 
 .banner-intro {
-    background-image: url("../img/intro/intro-banner.jpg") !important;
+    /* background-image: url("../img/intro/intro-banner.jpg") !important; */
 }
 
 .intro-title h2 {
@@ -5279,7 +5279,7 @@ address p {
 .travel-booking {
     position: relative;
     height: 100vh;
-    background-image: url("../img/banner/travel.jpg");
+    /* background-image: url("../img/banner/travel.jpg"); */
 }
 
 .travel-form-bg {
@@ -5615,7 +5615,7 @@ address p {
 
 .error-parallax {
     height: 100vh;
-    background-image: url("../img/parallax/404_parallax.jpg");
+    /* background-image: url("../img/parallax/404_parallax.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -5696,7 +5696,7 @@ address p {
 /*==============================================
  Background Images
  ===============================================*/
-.home-banner {
+/* .home-banner {
     background-image: url("../img/banner/index-banner-2.jpg") !important;
 }
 
@@ -5906,12 +5906,12 @@ address p {
 
 .banner-contact {
     background-image: url("../img/contact-banner.jpg") !important;
-}
+} */
 
 /*--------------------------------------
     parallax images
 --------------------------------------*/
-.parallax-4 {
+/* .parallax-4 {
     background-image: url("../img/parallax/4.jpg") !important;
 }
 
@@ -6009,7 +6009,7 @@ address p {
     background-image: url("../img/spa/s-parallax.jpg") !important;
 }
 
-/**/
+
 .post-p8 {
     background: url("../img/post/p8.jpg") right 100px no-repeat !important;
 }
@@ -6020,7 +6020,7 @@ address p {
 
 .post-p9-alt {
     background: url("../img/post/p9.jpg") left 100px no-repeat !important;
-}
+} */
 
 /*==============================================
  Responsive

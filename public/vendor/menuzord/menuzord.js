@@ -6,7 +6,7 @@ License: http://codecanyon.net/licenses
 */
 
 (function($){
-
+	//'use strict';
 	jQuery.fn.menuzord = function(options){
 		var settings;
 		$.extend( settings = {
@@ -20,8 +20,8 @@ License: http://codecanyon.net/licenses
 			responsive: true,
 			animation: "none",
 			indentChildren: true,
-			indicatorFirstLevel: "ï„‡",
-			indicatorSecondLevel: "ïƒš",
+			indicatorFirstLevel: "+",
+			indicatorSecondLevel: "+",
 			scrollable: true,
 			scrollableMaxHeight: 400
 		}, options);
@@ -31,7 +31,7 @@ License: http://codecanyon.net/licenses
 		var menu = $(menu_container).children(".menuzord-menu");
 		var menu_li = $(menu).find("li");
 		var showHideButton;
-		var mobileWidthBase = 991;
+		var mobileWidthBase = 768;
 		var bigScreenFlag = 2000; // a number greater than "mobileWidthBase"
 		var smallScreenFlag = 200; // a number less than "mobileWidthBase"
 
@@ -59,7 +59,7 @@ License: http://codecanyon.net/licenses
 
 		// responsive behavior
 		if(settings.responsive){
-			$(menu_container).addClass("menuzord-responsive").prepend("<a href='javascript:void(0)' class='showhide'><span></span><span></span><span></span><span></span></a>");
+			$(menu_container).addClass("menuzord-responsive").prepend("<a href='javascript:void(0)' class='showhide'><em></em><em></em><em></em></a>");
 			showHideButton = $(menu_container).children(".showhide");
 		}
 

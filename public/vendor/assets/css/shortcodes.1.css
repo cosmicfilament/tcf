@@ -96,7 +96,7 @@
 .page-title.background-title {
     height: auto;
     padding: 200px 0;
-    /* background-image: url(); */
+    background-image: url();
     /*background-attachment: fixed;*/
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -109,7 +109,7 @@
 .page-title.banner-background {
     height: 630px;
     padding: 200px 0;
-    /* background-image: url(../img/about/02.jpg); */
+    background-image: url(../img/about/02.jpg);
     /*background-attachment: fixed;*/
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -122,7 +122,7 @@
 .page-title.parallax-title {
     height: auto;
     padding: 200px 0;
-    /* background-image: url(../img/parallax/2.jpg); */
+    background-image: url(../img/parallax/2.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 0;
@@ -134,7 +134,7 @@
 -----------------------------------------------------------------*/
 .page-title.pattern-title {
     height: auto;
-    /* background-image: url(../img/pattern.png); */
+    background-image: url(../img/pattern.png);
     background-repeat: repeat;
 }
 
@@ -281,7 +281,7 @@
     feature parallax
 -----------------------------------------------------------------*/
 .feature-parallax {
-    /* background-image: url("../img/parallax/2.jpg"); */
+    background-image: url("../img/parallax/2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -882,7 +882,7 @@ dl.toggle.time-line:before {
 
 /**/
 .tab-parallax {
-    /* background-image: url("../img/pattern-2.png"); */
+    background-image: url("../img/pattern-2.png");
     background-repeat: repeat;
     /*background-size: cover;*/
     background-attachment: fixed;
@@ -1022,7 +1022,7 @@ dl.toggle.time-line:before {
 
 .tab-parallax-alt {
     padding: 200px 0;
-    /* background-image: url("../img/parallax/13.jpg"); */
+    background-image: url("../img/parallax/13.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -1139,13 +1139,13 @@ dl.toggle.time-line:before {
 
 .promo-pattern {
     height: auto;
-    /* background-image: url(../img/pattern.png); */
+    background-image: url(../img/pattern.png);
     background-repeat: repeat;
 }
 
 .promo-parallax {
     height: auto;
-    /* background-image: url(../img/parallax/promo_para.jpg); */
+    background-image: url(../img/parallax/promo_para.jpg);
     background-repeat: repeat;
     background-attachment: fixed;
 }
@@ -1350,7 +1350,7 @@ dl.toggle.time-line:before {
 
 .fun-factor-parallax {
     height: auto;
-    /* background-image: url(../img/parallax/2.jpg); */
+    background-image: url(../img/parallax/2.jpg);
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: center;
@@ -1754,7 +1754,16 @@ dl.toggle.time-line:before {
 }
 
 /*------------*/
-
+.post-parallax {
+    overflow: hidden;
+    width: 100% !important;
+    height: 100%;
+    background-image: url("../img/parallax/4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+}
 
 .post-parallax .relative {
     float: left;
@@ -3124,7 +3133,7 @@ dl.toggle.time-line:before {
 
 /**/
 .testimonial-parallax {
-    /* background-image: url("../img/parallax/2.jpg"); */
+    background-image: url("../img/parallax/2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -3819,7 +3828,7 @@ h3.timeline-title {
 }
 
 .timeline-parallax {
-    /* background-image: url("../img/parallax/t-parallax.jpg"); */
+    background-image: url("../img/parallax/t-parallax.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -4025,7 +4034,7 @@ h3.timeline-title {
 }
 
 .price-table-parallax {
-    /* background-image: url("../img/parallax/2.jpg"); */
+    background-image: url("../img/parallax/2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -4284,11 +4293,11 @@ a.show-detail:after {
 }
 
 .carousel.slide a.right.carousel-control:hover {
-    /* cursor: url(../img/carousel/arrow_right.png), auto; */
+    cursor: url(../img/carousel/arrow_right.png), auto;
 }
 
 .carousel.slide a.left.carousel-control:hover {
-    /* cursor: url(../img/carousel/arrow_left.png), auto; */
+    cursor: url(../img/carousel/arrow_left.png), auto;
 }
 
 .carousel.slide a.left.carousel-control,
@@ -4547,7 +4556,7 @@ a.show-detail:after {
 }
 
 .count-parallax {
-    /* background-image: url("../img/parallax/5.jpg"); */
+    background-image: url("../img/parallax/5.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
