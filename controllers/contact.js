@@ -1,11 +1,18 @@
 'use strict';
 const contactModel = require('../models').Contact;
 const sendmail = require('../helpers/sendmail');
+const footer = require('../helpers/footer');
 
 module.exports = {
 
     index: (req, res) => {
-        res.render("contact");
+
+        const viewModel = {
+        };
+
+        footer(viewModel, (viewModel) => {
+            res.render("contact", viewModel);
+        });
     },
 
     process: (req, res) => {

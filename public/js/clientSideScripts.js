@@ -1,6 +1,6 @@
 'use strict';
 
-(function ($) {
+(($)=> {
 
     //const $window = $(window);
     const $document = $(document);
