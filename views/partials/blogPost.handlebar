@@ -27,6 +27,6 @@
                 created on: {{timestamp}}
             </li>
         </ul>
-        <pre>{{text}}</pre>
+        {{text}}
     </div>
 </div>

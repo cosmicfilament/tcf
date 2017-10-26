@@ -1,6 +1,6 @@
 'use strict';
 
-(($)=> {
+(($) => {
 
     //const $window = $(window);
     const $document = $(document);
@@ -29,27 +29,13 @@
     /*******************************************************/
 
     $document.ready(() => {
-        // get the substring with the name of the pending active page
-        let newActive = $(location).attr('pathname');
-        // when website is first loaded then url is '/' vice 'Home'
-        if (newActive === '/') {
-            newActive = '/Home';
-        }
-        newActive = newActive.substring(newActive.indexOf('/') + 1).toUpperCase();
-        //remove the active class from the page we just left
-        $('.menuzord-menu li.active').removeClass('active');
-
-        // iterate thru the menu and set the current page active
-        const $menuItems = $('.menuzord-menu li a');
-        $.each($menuItems, (index, item) => {
-
-            let tryMatch = $(item).attr('href').toUpperCase();
-            if (tryMatch && tryMatch.match(/\/(\w+)/) !== null) {
-                tryMatch = tryMatch.substring(tryMatch.indexOf('/') + 1);
-
-                if (tryMatch === newActive) {
-                    $(item).parent().addClass('active');
-                }
+        const url = window.location.href;
+        // passes on every "a" tag
+        $(".menuActivator li a").each(function () {
+            // checks if its the same on the address bar
+            if (url === (this.href)) {
+                $('.menuActivator li.active').removeClass('active');
+                $(this).closest("li").addClass("active");
             }
         });
     });
@@ -81,7 +67,7 @@
                 data: { page: nPage },
                 success: (data) => {
                     if (data.success === true) {
-                        $('.insertBlog').html(data.data);
+                        $('.insertBlog').text(data.data);
                         $('._response').html(`<span>[ ${parseInt($("input[name= '_page']").val()) + 1} ]</span>`);
                         $("html, body").animate({
                             scrollTop: $(".banner-state").offset().top

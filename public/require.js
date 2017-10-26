@@ -1,7 +1,5 @@
 'use strict';
 
-import "./img/tcf-monet.jpg";
-import "./img/tcf-logo.jpg";
 import "./img/tcf-logo-trans.png";
 import "./img/tcf-john.jpg";
 import "./img/tcf-icon-wh.png";
@@ -27,6 +25,7 @@ import "./img/portfolio/whaleshark-thumb.jpg";
 import "./img/portfolio/fins-thumb.jpg";
 import "./img/post/hand.jpg";
 import "./img/post/phone.jpg";
+import "./img/markchain.jpg";
 
 import "./vendor/animate/animate.css";
 import "./vendor/elasic-slider/elastic.css";
