@@ -67,7 +67,7 @@
                 data: { page: nPage },
                 success: (data) => {
                     if (data.success === true) {
-                        $('.insertBlog').text(data.data);
+                        $('.insertBlog').html(data.data);
                         $('._response').html(`<span>[ ${parseInt($("input[name= '_page']").val()) + 1} ]</span>`);
                         $("html, body").animate({
                             scrollTop: $(".banner-state").offset().top
