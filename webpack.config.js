@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = (env = { dev: true, prod: false }) => {
+module.exports = (env = {}) => {
 
-    console.log(`env.dev: ${env.dev}, env.prod: ${env.prod}.`);
+    console.log(`\n\n**********\nenv.dev: ${env.dev}, env.prod: ${env.prod}.\n*********\n\n`);
     return require("./webpack." + Object.keys(env)[0] + ".js");
 };

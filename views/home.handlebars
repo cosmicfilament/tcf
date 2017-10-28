@@ -1,3 +1,4 @@
+ {{> header }}
 <!--hero section-->
 <div class="banner-state text-center vertical-align height-600">
     <div class="container-mid">
@@ -22,7 +23,8 @@
                     <div class="text-center">
                         <form class="form-paginate" action="/home/newPage" method="POST">
                             <input type="hidden" name="_csrf" value="{{csrf}}">
-                            <input type="hidden" name="_page" value="0">
+                            <input type="hidden" name="_page" value="{{page}}">
+                            <input type="hidden" name="_total" value="{{total}}">
                             <ul class="pagination custom-pagination">
                                 <li>
                                     <button type="button" name="_prev" class="btn btn-default btn-paginate">
@@ -35,7 +37,7 @@
                                 </li>
                             </ul>
                         </form>
-                        <span class="_response">[1]</span>
+                        <span class="_response">[Page {{page}} of {{total}}]</span>
                     </div>
                     <!--pagination-->
                 </div>

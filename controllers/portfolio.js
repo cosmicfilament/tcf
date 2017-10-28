@@ -13,15 +13,15 @@ module.exports = {
         });
     },
     imageRetrieve: (req, res) => {
-        res.send("Adding a blog entry");
+        res.send("Adding a portfolio entry");
     },
     imageDelete: (req, res) => {
-        res.send("Retrieving a blog entry.");
+        res.send("Retrieving a portfolio entry.");
     },
     imageAdd: (req, res) => {
-        res.send("Adding a blog entry");
+        res.send("Adding a portfolio entry");
     },
     commentAdd: (req, res) => {
-        res.send("Retrieving a blog entry.");
+        res.send("Adding a portfolio comment.");
     }
 };

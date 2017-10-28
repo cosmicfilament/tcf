@@ -1,118 +1,102 @@
 'use strict';
 
-(($) => {
+$(document).ready(() => {
+    // set the copyright year for the footer
+    $(".tcf-copyright").prepend(`Copyright ${new Date().getFullYear()}`);
+});
 
-    //const $window = $(window);
-    const $document = $(document);
+/*******************************************************/
+/*** Adds the active class to the selected Menu Item ***/
+/*******************************************************/
 
-    /*******************************************************/
-    /***          Date and Time Functions                ***/
-    /*******************************************************/
-
-    $document.ready(() => {
-        const date = new Date();
-        //const day = date.getDate();
-        //const month = date.getMonth();
-        const year = date.getFullYear();
-
-        //const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-        // set the copyright year for the footer
-        $(".tcf-copyright").prepend(`Copyright ${year}`);
-
-        // set the current day and date for the blog-classic date <div>
-        //$(".blog-classic .date").html(`${day}<span>${months[month]} ${year}</span>`);
+$(document).ready(() => {
+    const url = window.location.href;
+    $(".menuActivator li a").each(function () {
+        if (url === (this.href)) {
+            $('.menuActivator li.active').removeClass('active');
+            $(this).closest("li").addClass("active");
+        }
     });
+});
 
-    /*******************************************************/
-    /*** Adds the active class to the selected Menu Item ***/
-    /*******************************************************/
+/*******************************************************/
+/***    Uses ajax call to get the next or previous   ***/
+/***    page of blog entries                         ***/
+/*******************************************************/
 
-    $document.ready(() => {
-        const url = window.location.href;
-        // passes on every "a" tag
-        $(".menuActivator li a").each(function () {
-            // checks if its the same on the address bar
-            if (url === (this.href)) {
-                $('.menuActivator li.active').removeClass('active');
-                $(this).closest("li").addClass("active");
-            }
-        });
-    });
+$(document).ready(() => {
+    $('.btn-paginate').on('click', (e) => {
+        const frm = $('.form-paginate');
+        // current page
+        let nPage = parseInt( $("input[name= '_page']").val() );
 
-    /*******************************************************/
-    /***    Uses ajax call to get the next or previous   ***/
-    /***    page of blog entries                         ***/
-    /*******************************************************/
+        e.preventDefault();
+        // we don't want to retrieve an empty set eg: beyond the total number of pages
+        if( nPage === parseInt( $("input[name= '_total']").val() ) )
+        {
+            return;
+        }
+        // else
+        if (e.target.name === "_next") {
+            nPage += 1;
+        }
+        else { // don't go below the first page
+            nPage = nPage > 1 ? nPage -= 1 : 1;
+        }
 
-    $document.ready(() => {
-        $('.btn-paginate').on('click', (e) => {
-            const frm = $('.form-paginate');
-            const $page = $("input[name= '_page']");
-            let nPage = parseInt($page.val());
-            nPage = isNaN(nPage) ? 0 : nPage;
-
-            if (e.target.name === "_next") {
-                nPage += 1;
-            }
-            else {
-                nPage = nPage > 0 ? nPage -= 1 : 0;
-            }
-            $page.val(nPage);
-            console.log(`Page next: ${nPage}.`);
-            e.preventDefault();
-            $.ajax({
-                url: frm.attr('action'),
-                type: frm.attr('method'),
-                data: { page: nPage },
-                success: (data) => {
-                    if (data.success === true) {
-                        $('.insertBlog').html(data.data);
-                        $('._response').html(`<span>[ ${parseInt($("input[name= '_page']").val()) + 1} ]</span>`);
-                        $("html, body").animate({
-                            scrollTop: $(".banner-state").offset().top
-                        }, 500);
-                    } else {
-                        $("._response").html('<p>There was a problem in submitting your information.</p>');
-                    }
-                },
-                error: () => {
-                    $("._response").html('<p>There was an unexpected system problem.</p>');
+        $.ajax({
+            url: frm.attr('action'),
+            type: frm.attr('method'),
+           // send the next page selected
+            // don't send total because it could change
+            // if the admin is adding a blog entry
+            data: { page: nPage },
+            success: (data) => {
+                if (data.success === true) {
+                    $('.insertBlog').html(data.data);
+                    $('._response').html(`<span>[Page ${data.page} of ${data.total}]</span>`);
+                    $("html, body").animate({
+                        scrollTop: $(".banner-state").offset().top
+                    }, 500);
+                } else {
+                    $("._response").html('<p>There was a problem in submitting your information.</p>');
                 }
-            });
+            },
+            error: () => {
+                $("._response").html('<p>There was an unexpected system problem.</p>');
+            }
         });
     });
+});
 
-    /*****************************************************************/
-    /***    Uses ajax call to submit contact form data to server.  ***/
-    /***    Server adds form data to db and emails me a copy.      ***/
-    /*****************************************************************/
+/*****************************************************************/
+/***    Uses ajax call to submit contact form data to server.  ***/
+/***    Server adds form data to db and emails me a copy.      ***/
+/*****************************************************************/
 
-    $document.ready(() => {
-        $('.contact-comments').on('submit', (e) => {
-            const frm = $('.contact-comments');
-            const responseField = $('.response');
+$(document).ready(() => {
+    $('.contact-comments').on('submit', (e) => {
+        const frm = $('.contact-comments');
+        const responseField = $('.response');
 
-            console.log("contact form submit");
-            e.preventDefault();
+        console.log("contact form submit");
+        e.preventDefault();
 
-            $.ajax({
-                url: frm.attr('action'),
-                type: frm.attr('method'),
-                data: frm.serialize(),
-                success: (data) => {
-                    if (data.success === true) {
-                        responseField.html(`<h3>Thank You!</h3><p>${data.msg}</p>`);
-                        $("button[name='submit']").attr('disabled', true);
-                    } else {
-                        responseField.html(`<p>There was a problem in submitting your information.</p><p>${data.msg}</p>`);
-                    }
-                },
-                error: () => {
-                    responseField.html(`<p>There was an unexpected system problem.</p>`);
+        $.ajax({
+            url: frm.attr('action'),
+            type: frm.attr('method'),
+            data: frm.serialize(),
+            success: (data) => {
+                if (data.success === true) {
+                    responseField.html(`<h3>Thank You!</h3><p>${data.msg}</p>`);
+                    $("button[name='submit']").attr('disabled', true);
+                } else {
+                    responseField.html(`<p>There was a problem in submitting your information.</p><p>${data.msg}</p>`);
                 }
-            });
+            },
+            error: () => {
+                responseField.html(`<p>There was an unexpected system problem.</p>`);
+            }
         });
     });
-
-})(jQuery);
+});

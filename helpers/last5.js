@@ -5,7 +5,7 @@ const blogModel = require('../models').Blog;
 module.exports = function (callback) {
 
     const ops = {
-        select: 'url short_title',
+        select: '_id title.short',
         limit: 5
     };
     blogModel.find({}, {}, ops, (err, results) => {

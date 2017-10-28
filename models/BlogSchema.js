@@ -1,5 +1,5 @@
 'use strict';
-
+const dateFormat = require('dateformat');
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const mongoose = require('mongoose');
@@ -9,26 +9,23 @@ const ObjectId = mongoose.Schema.ObjectId;
 const BlogSchema = new mongoose.Schema({
     commentId: { type: ObjectId }, //not used right now
     author: { type: String },
-    short_title: { type: String },
-    title: { type: String },
-    text: { type: String },
-    views: { type: Number, 'default': 0 },
-    likes: { type: Number, 'default': 0 },
-    gravatar: { type: String },
-    url: { type: String },
+    title: {
+        short: { type: String },
+        long: { type: String },
+    },
+    text: {
+        brief: { type: String },
+        extended: { type: String },
+    },
     timestamp: { type: Date, 'default': Date.now } // time of blog entry
 });
 
-BlogSchema.virtual('day')
-    .get(function () {
-        return new Date(this.timestamp).getDate();
-    });
-
-BlogSchema.virtual('monthyr')
-    .get(function () {
-        const date = new Date(this.timestamp);
-        return `${months[date.getMonth()]}, ${date.getFullYear()}`;
-    });
+//day as 04
+BlogSchema.virtual('day').get(function () { return dateFormat(new Date(this.timestamp), "dd"); });
+// sep 2017
+BlogSchema.virtual('monthyr').get(function () { return dateFormat(new Date(this.timestamp), "mmm, yyyy"); });
+// Sat Oct 09, 2017 3:15 pm
+BlogSchema.virtual('createdOn').get(function () { return dateFormat(new Date(this.timestamp), "ddd, mmm dS, yyyy h:MM TT"); });
 
 BlogSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('Blog', BlogSchema);

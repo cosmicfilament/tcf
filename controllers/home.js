@@ -12,7 +12,7 @@ module.exports = {
         };
 
         const ops = {
-            select: 'author title text views likes timestamp',
+            select: '_id author title text timestamp',
             sort: { date: -1 },
             lean: false,
             offset: 0,
@@ -20,12 +20,21 @@ module.exports = {
         };
 
         try {
-
-            blogModel.paginate({}, ops, (err, results) => {
+            blogModel.find().count((err, count) => {
                 if (err) { throw err; }
-                viewModel.blogs = results.docs;
-                footer(viewModel, (viewModel) => {
-                    res.render('home', viewModel);
+
+                viewModel.page = 1;
+                viewModel.total = Math.floor(count / ops.limit) + 1;
+                 // total is count/# of items plus 1 if there is a remainder
+                 viewModel.total = count / ops.limit;
+                 viewModel.total = viewModel.total === Math.floor(viewModel.total) ? viewModel.total : Math.floor(viewModel.total + 1);
+
+                blogModel.paginate({}, ops, (err, results) => {
+                    if (err) { throw err; }
+                    viewModel.blogs = results.docs;
+                    footer(viewModel, (viewModel) => {
+                        res.render('home', viewModel);
+                    });
                 });
             });
         }
@@ -40,18 +49,32 @@ module.exports = {
         if (req.xhr || req.accepts('json,html') === 'json') {
 
             const ops = {
-                select: 'author title text views likes timestamp',
+                select: '_id author title text timestamp',
                 sort: { date: -1 },
                 lean: false,
                 offset: 0,
                 limit: 5
             };
-            ops.offset = parseInt(req.body.page) * ops.limit;
+            // get next page which is zero based in the query, so subtract 1
+            let page = parseInt(req.body.page) - 1;
+            // starting item # of next query
+            // for 1st page == 0 * 5 etc...
+            ops.offset = page * ops.limit;
+            // total is the total number of pages in the database
+            let total = 0;
 
             try {
-                blogModel.paginate({}, ops, (err, results) => {
+                blogModel.find().count((err, count) => {
                     if (err) { throw err; }
-                    return res.send({ data: models.buildHTML(results.docs, "blogPost"), success: true });
+                    // total is count/# of items plus 1 if there is a remainder
+                    total = count / ops.limit;
+                    total = total === Math.floor(total) ? total : Math.floor(total + 1);
+                    // add 1 back to page for page display on the front end
+                    page += 1;
+                    blogModel.paginate({}, ops, (err, results) => {
+                        if (err) { throw err; }
+                        return res.send({ data: models.buildHTML(results.docs, "blogPost"), page: page, total: total, success: true });
+                    });
                 });
             }
             catch (err) {
