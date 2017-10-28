@@ -1,5 +1,5 @@
 'use strict';
-const conn = new Mongo('localhost');
+const conn = new Mongo('whaleshark');
 const db = conn.getDB("tcf");
 db.blogs.drop();
 

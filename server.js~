@@ -10,7 +10,7 @@ app = config(app);
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/tcf');
+mongoose.connect('mongodb://whaleshark/tcf');
 mongoose.connection.on('open', function () {
     console.log('Mongoose connected.');
 });
