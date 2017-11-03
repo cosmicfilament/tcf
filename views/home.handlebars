@@ -22,7 +22,7 @@
                     <!--pagination-->
                     <div class="text-center">
                         <form class="form-paginate" action="/home/newPage" method="POST">
-                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
                             <input type="hidden" name="_page" value="{{page}}">
                             <input type="hidden" name="_total" value="{{total}}">
                             <ul class="pagination custom-pagination">

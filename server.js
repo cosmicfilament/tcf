@@ -2,19 +2,25 @@
 
 const express = require('express');
 const config = require('./server/configure');
+require('dotenv').config();
+
+const NODE_PORT = process.env.NODE_PORT || 3000;
+const MONGO_HOST = process.env.MONGO_HOST || "localhost";
+
 
 let app = express();
-app.set('port', process.env.NODE_PORT || 3000);
+//app.set('port', NODE_PORT);
 app.set('views', `${__dirname}/views`);
 app = config(app);
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/tcf');
-mongoose.connection.on('open', function () {
+console.log(`Mongo connecting to: ${MONGO_HOST}`);
+mongoose.connect(`mongodb://${MONGO_HOST}/tcf`);
+mongoose.connection.on('open', () => {
     console.log('Mongoose connected.');
 });
 
-app.listen(app.get('port'), () => {
-    console.log(`Server up: http://localhost:${app.get('port')}`);
+app.listen(NODE_PORT, () => {
+    console.log(`Server up: http://localhost:${NODE_PORT}`);
 });

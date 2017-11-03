@@ -28,12 +28,11 @@ $(document).ready(() => {
     $('.btn-paginate').on('click', (e) => {
         const frm = $('.form-paginate');
         // current page
-        let nPage = parseInt( $("input[name= '_page']").val() );
+        let nPage = parseInt($("input[name= '_page']").val());
 
         e.preventDefault();
         // we don't want to retrieve an empty set eg: beyond the total number of pages
-        if( nPage === parseInt( $("input[name= '_total']").val() ) )
-        {
+        if (nPage === parseInt($("input[name= '_total']").val())) {
             return;
         }
         // else
@@ -44,16 +43,19 @@ $(document).ready(() => {
             nPage = nPage > 1 ? nPage -= 1 : 1;
         }
 
+        const token = $("input[name= '_csrf']").val();
+
         $.ajax({
             url: frm.attr('action'),
             type: frm.attr('method'),
-           // send the next page selected
+            // send the next page selected
             // don't send total because it could change
             // if the admin is adding a blog entry
-            data: { page: nPage },
+            data: { page: nPage, csrfToken: token, _csrf: token },
             success: (data) => {
                 if (data.success === true) {
                     $('.insertBlog').html(data.data);
+                    $("input[name= '_csrf']").val(data.csrfToken);
                     $('._response').html(`<span>[Page ${data.page} of ${data.total}]</span>`);
                     $("html, body").animate({
                         scrollTop: $(".banner-state").offset().top

@@ -1,8 +1,17 @@
 'use strict';
 
 const footer = require('../helpers/footer');
-const models = require('../models');
-const blogModel = models.Blog;
+const blogModel = require('../models').Blog;
+
+
+const buildHTML = (ary, str) => {
+    const template = require('express-handlebars').templates[str];
+    let html = "";
+    for (let index = 0; index < ary.length; ++index) {
+        html += template(ary[index]);
+    }
+    return html;
+};
 
 module.exports = {
     index: (req, res) => {
@@ -25,13 +34,16 @@ module.exports = {
 
                 viewModel.page = 1;
                 viewModel.total = Math.floor(count / ops.limit) + 1;
-                 // total is count/# of items plus 1 if there is a remainder
-                 viewModel.total = count / ops.limit;
-                 viewModel.total = viewModel.total === Math.floor(viewModel.total) ? viewModel.total : Math.floor(viewModel.total + 1);
+                // total is count/# of items plus 1 if there is a remainder
+                viewModel.total = count / ops.limit;
+                viewModel.total = viewModel.total === Math.floor(viewModel.total) ? viewModel.total : Math.floor(viewModel.total + 1);
 
                 blogModel.paginate({}, ops, (err, results) => {
                     if (err) { throw err; }
                     viewModel.blogs = results.docs;
+                    //first time load a page set a csrf token.
+                    viewModel.csrfToken = req.csrfToken();
+                    console.log(`home-index: ${req.csrfToken()}`);
                     footer(viewModel, (viewModel) => {
                         res.render('home', viewModel);
                     });
@@ -57,23 +69,31 @@ module.exports = {
             };
             // get next page which is zero based in the query, so subtract 1
             let page = parseInt(req.body.page) - 1;
-            // starting item # of next query
-            // for 1st page == 0 * 5 etc...
+            //pass the same token back and forth for the session
+            const token = req.body.csrfToken;
+            // starting item # of next query and it is zero based for the altzheimer bunch
+            // for 1st page == 0 * 5 which means 1st entry
+            // 2nd page == 1 * 5 which means 6th entry etc....
             ops.offset = page * ops.limit;
-            // total is the total number of pages in the database
+            // doesn't mean shit yet, see below
             let total = 0;
 
             try {
                 blogModel.find().count((err, count) => {
                     if (err) { throw err; }
-                    // total is count/# of items plus 1 if there is a remainder
+                    // total means the total # of pages in the database plus 1 if there is a remainder
                     total = count / ops.limit;
                     total = total === Math.floor(total) ? total : Math.floor(total + 1);
                     // add 1 back to page for page display on the front end
                     page += 1;
                     blogModel.paginate({}, ops, (err, results) => {
                         if (err) { throw err; }
-                        return res.send({ data: models.buildHTML(results.docs, "blogPost"), page: page, total: total, success: true });
+                        return res.send({
+                            data: buildHTML(results.docs, "blogPost"),
+                            csrfToken: token,
+                            page: page,
+                            total: total,
+                            success: true });
                     });
                 });
             }

@@ -9,7 +9,8 @@ module.exports = {
 
         const viewModel = {
         };
-
+        viewModel.csrfToken = req.csrfToken();
+        console.log(`contact-index: ${req.csrfToken()}`);
         footer(viewModel, (viewModel) => {
             res.render("contact", viewModel);
         });
