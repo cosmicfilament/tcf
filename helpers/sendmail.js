@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 const { createConnection } = require('net');
 const { resolveMx } = require('dns');
@@ -6,8 +6,13 @@ const { DKIMSign } = require('dkim-signer');
 const mailcomposer = require('mailcomposer');
 const CRLF = '\r\n';
 
+/**************************************************************/
+/*            mildly hacked version of sendmail                /
+/*                                                             /
+/**************************************************************/
+
 function dummy() { }
-module.exports = function (mail, callback, opts = {}) {
+module.exports = function (mail, opts = {}, callback = null) {
   let options = opts;
   const logger = options.logger || (options.silent && {
     debug: dummy,
@@ -24,6 +29,8 @@ module.exports = function (mail, callback, opts = {}) {
   const dkimKeySelector = (options.dkim || {}).keySelector || 'dkim';
   const devPort = options.devPort || -1;
   const devHost = options.devHost || 'localhost';
+  // just bypasss all of the socket stuff in dev and return
+  const isDev = options.DEV || false;
 
   function getHost(email) {
     const m = /[^@]+@([\w\d\-\.]+)/.exec(email);
@@ -211,7 +218,7 @@ module.exports = function (mail, callback, opts = {}) {
         }
       }
     });
-  }
+  }  // end sendToSMTP
 
   function getAddress(address) {
     return address.replace(/^.+</, '').replace(/>\s*$/, '').trim();
@@ -230,10 +237,10 @@ module.exports = function (mail, callback, opts = {}) {
     return results;
   }
 
+  // actual SendMail code
   let recipients = [];
   let groups;
   let srcHost;
-  let result = "sendMail successful";
 
   if (mail.to) {
     recipients = recipients.concat(getAddresses(mail.to));
@@ -266,14 +273,17 @@ module.exports = function (mail, callback, opts = {}) {
         keySelector: dkimKeySelector,
         domainName: srcHost
       });
-      message = signature + '\r\n' + message;
+      message = signature + CRLF + message;
     }
 
-    for (let domain in groups) {
-      sendToSMTP(domain, srcHost, from, groups[domain], message, callback);
+    if (isDev === false) {
+      for (let domain in groups) {
+        sendToSMTP(domain, srcHost, from, groups[domain], message, callback);
+      }
     }
-
-    return;
-
+    else {
+      return callback(null, "return success - SendMail Development");
+    }
+    return callback;
   });
 };

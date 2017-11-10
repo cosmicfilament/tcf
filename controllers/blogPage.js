@@ -1,8 +1,7 @@
 'use strict';
 
 const footer = require('../helpers/footer');
-const models = require('../models');
-const blogModel = models.Blog;
+const blogModel = require('../models').Blog;
 
 module.exports = {
     index: (req, res) => {

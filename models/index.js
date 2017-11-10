@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-    'Contact': require('./contactSchema'),
+    'Contact': require('./ContactSchema'),
     'Blog': require('./BlogSchema'),
-    'Image': require('./portfolioSchema'),
+    'Portfolio': require('./PortfolioSchema'),
+    'Comment': require('./CommentSchema'),
 };

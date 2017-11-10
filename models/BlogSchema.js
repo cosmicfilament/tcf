@@ -2,10 +2,9 @@
 const dateFormat = require('dateformat');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
-const ObjectId = mongoose.Schema.ObjectId;
+const comment = require('./CommentSchema').CommentSchema;
 
 const BlogSchema = new mongoose.Schema({
-    commentId: { type: ObjectId }, //not used right now
     author: { type: String },
     title: {
         short: { type: String },
@@ -15,6 +14,7 @@ const BlogSchema = new mongoose.Schema({
         brief: { type: String },
         extended: { type: String },
     },
+    comments: [comment],
     timestamp: { type: Date, 'default': Date.now } // time of blog entry
 });
 

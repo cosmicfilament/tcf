@@ -1,7 +1,7 @@
 {
     "name": "tcf",
-    "script": "index.js",
+    "script": "server.js",
     "env_production": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "development"
     }
 }

@@ -11,7 +11,6 @@ module.exports = (viewModel, callback) => {
         }
         // chain additional calls here
     ], (err, results) => {
-        console.log(results.docs);
         viewModel.footer = {
             last5: results[0]
         };

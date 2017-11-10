@@ -51,7 +51,7 @@ $(document).ready(() => {
             // send the next page selected
             // don't send total because it could change
             // if the admin is adding a blog entry
-            data: { page: nPage, csrfToken: token, _csrf: token },
+            data: { page: nPage, _csrf: token },
             success: (data) => {
                 if (data.success === true) {
                     $('.insertBlog').html(data.data);
@@ -81,7 +81,6 @@ $(document).ready(() => {
         const frm = $('.contact-comments');
         const responseField = $('.response');
 
-        console.log("contact form submit");
         e.preventDefault();
 
         $.ajax({
@@ -98,6 +97,34 @@ $(document).ready(() => {
             },
             error: () => {
                 responseField.html(`<p>There was an unexpected system problem.</p>`);
+            }
+        });
+    });
+});
+
+/*****************************************************************/
+/***    Uses ajax call to login to server for                  ***/
+/***    updating or creating blog entries.                     ***/
+/*****************************************************************/
+
+$(document).ready(() => {
+    $('.form-login').on('submit', (e) => {
+        const frm = $('.form-login');
+        e.preventDefault();
+
+        $.ajax({
+            url: frm.attr('action'),
+            type: frm.attr('method'),
+            data: frm.serialize(),
+            success: (data) => {
+                if (data.success === true) {
+
+                } else {
+
+                }
+            },
+            error: () => {
+
             }
         });
     });

@@ -1,12 +1,10 @@
 'use strict';
 const footer = require('../helpers/footer');
-const models = require('../models');
 
 module.exports = {
     index: (req, res) => {
 
-        const viewModel = {
-        };
+        const viewModel = {};
 
         footer(viewModel, (viewModel) => {
             res.render("portfolio", viewModel);
