@@ -1,0 +1,27 @@
+<div class="blog-classic">
+    <div class="date">
+        {{day}}
+        <span>{{monthyr}}</span>
+    </div>
+    <div class="blog-post">
+        <h4 class="text-uppercase">{{title.long}}</h4>
+        <ul class="post-meta">
+            <li>
+                <i class="fa fa-user"></i>
+                Posted by {{author}}
+            </li>
+            <li>
+                <i class="fa fa-comments"></i>
+                Comments: 4
+            </li>
+            <li>
+                <i class="fa fa-calendar"></i>
+                created on: {{createdOn}}
+            </li>
+        </ul>
+        {{{text.brief}}}
+        {{#if text.extended}}
+            <a href="/blogPage/{{_id}}" class="btn btn-small btn-dark-solid" name="{{_id}}"> Continue Reading</a>
+        {{/if}}
+    </div>
+</div>

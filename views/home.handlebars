@@ -1,0 +1,48 @@
+ {{> header }}
+<!--hero section-->
+<div class="banner-state text-center vertical-align height-600">
+    <div class="container-mid">
+        <div class="container">
+            <div class="banner-box light-box">
+                <h2 class="text-uppercase ls-20">The Cosmic Filament Blog</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--hero section-->
+
+<!--body content start-->
+<section class="body-content page-blog">
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 ">
+                    <span class="insertBlog">{{> blogPost }}</span>
+                    <!--pagination-->
+                    <div class="text-center">
+                        <form class="form-paginate" action="/home/newPage" method="POST">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <input type="hidden" name="_page" value="{{page}}">
+                            <input type="hidden" name="_total" value="{{total}}">
+                            <ul class="pagination custom-pagination">
+                                <li>
+                                    <button type="button" name="_prev" class="btn btn-default btn-paginate">
+                                        <i class="fa fa-arrow-left"></i> Newer Stuff</button>
+                                </li>
+                                <li>
+                                    <button type="button" name="_next" class="btn btn-default btn-paginate">Older Stuff
+                                        <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </form>
+                        <span class="_response">[Page {{page}} of {{total}}]</span>
+                    </div>
+                    <!--pagination-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--body content end-->

@@ -1,0 +1,52 @@
+<!--page title start-->
+<section class="page-title text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-uppercase">{{page.title.long}}</h4>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/Home">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">{{page.title.short}}</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!--page title end-->
+
+<!--body content start-->
+<section class="body-content page-blog">
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- blog extended post-->
+                    <div class="blog-post">
+                        <h4 class="text-uppercase">{{page.title.long}}</h4>
+                        <ul class="post-meta">
+                            <li>
+                                <i class="fa fa-user"></i>
+                                Posted by {{page.author}}
+                            </li>
+                            <li>
+                                <i class="fa fa-comments"></i>
+                                Comments: 4
+                            </li>
+                            <li>
+                                <i class="fa fa-calendar"></i>
+                                created on: {{page.createdOn}}
+                            </li>
+                        </ul>
+                        {{{page.text.brief}}} {{{page.text.extended}}}
+                    </div>
+                    <!-- end blog extended post -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--body content end-->
