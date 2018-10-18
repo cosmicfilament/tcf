@@ -67,7 +67,7 @@ module.exports = {
             // for 1st page == 0 * 5 which means 1st entry
             // 2nd page == 1 * 5 which means 6th entry etc....
             ops.offset = page * ops.limit;
-            // doesn't mean shit yet, see below
+            // doesn't mean anything yet, see below
             let total = 0;
 
 

@@ -66,7 +66,7 @@ module.exports = {
                                     }
                                 }
                                 catch (err) {
-                                    console.log(`WTF error sending contact email: ${err}.`);
+                                    console.log(`Error sending contact email: ${err}.`);
                                     return res.send({
                                         msg: "Error sending email. No message sent. Try again later. [catch:2]",
                                         success: false
@@ -77,7 +77,7 @@ module.exports = {
                     }
                 }
                 catch (err) {
-                    console.log(`WTF error writing to contact db: ${err}. [catch:1]`);
+                    console.log(`Error writing to contact db: ${err}. [catch:1]`);
                 }
             });
         }
